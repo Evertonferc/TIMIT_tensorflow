@@ -3,7 +3,8 @@
 import os, fnmatch
 import array
 import re
-#import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.pyplot as plt
 
 ###Função que navega entre os diretórios###
 
@@ -30,24 +31,23 @@ def nistread():
             bytes_read = wave.read()
         wave.close()
 
-        
+
         # extraction and treatment of header
         header = str(bytes_read[0:1023])
 
         fs = float((re.search('(?<=sample_rate -i )\w+', header)).group(0))
         bits = float((re.search('(?<=sample_sig_bits -i )\w+', header)).group(0))
         version = float((re.search('(?<=database_version -s3 )\w+', header)).group(0))
-          
-        
+
+
         if bits==16:
-            signal = array.array('h', bytes_read[1024:])
-            x = 2*2
-            return fs, bits, version
-            
-            
+            signal = np.array(array.array('h', bytes_read[1024:]))
+            return signal, fs, bits, version
+
+
         elif bits==8:
-            signal = array.array('b', bytes_read[1024:])
-            return fs, bits, version
+            signal = np.array(array.array('b', bytes_read[1024:]))
+            return signal, fs, bits, version
         else:
             print('this file is not in 16 bits nor 8 bits')
 
@@ -61,8 +61,5 @@ def phonemread():
         with open(path, 'r') as text:
            for line in text:
             print(line[:1])
-               
+
         text.close()
-        
-
-
