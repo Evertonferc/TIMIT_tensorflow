@@ -55,7 +55,7 @@ def nistread():
 
 ###função que abre os arquivos .phn
 
-def phonemread():
+def phonemeread():
     
     for path in all_files('C:/Users/evert/Desktop/Testando/Alguns dados para teste/TRAIN/DR1/FCJF0', '*.PHN'):
         with open(path, 'r') as text:
@@ -63,9 +63,27 @@ def phonemread():
         content = [line.strip() for line in content]
         text.close()
         
-        separando = [col.splitlines(' ') for col in content]
-        #separando = [col.split(' ',3)[0] for col in content]
-       # separando = content[]
-        #separando = content.split(' ')
+        spliting = [col.split() for col in content]
         
-        return separando
+        x = [[linha[i][:] for linha in spliting] for i in range(len(spliting[0]))]
+        i, f, ph = int(x[1])    
+        
+        
+        #x = [spliting[i] for i in spliting]
+        
+        
+        return x
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
