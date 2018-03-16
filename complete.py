@@ -63,39 +63,30 @@ def phonemeread():
         text.close()
         
         spliting = [line.split() for line in content]
-        vazio = []
+
         
         t = [(int(lines[0]), int(lines[1]), lines[2]) for lines in spliting]
-        #vazio.append([begin, end, phoneme])
-        
-        #x = [[line[i][:] for line in spliting] for i in range(len(spliting[0]))]
-        
-        
-        #col1 = [int(b) for b in range(len(spliting)) for spliting[b]]
-    
-       # begin, end = [int(b) for b in x[0]], [int(e) for e in x[1]]
-        #phoneme = x[2]
-        
-       # test = [(a,b,c) for a in begin for b in end for c in phoneme if begin.index(a) == end.index(b) and phoneme.index(c)]
-        #test = [(a,b,c) for i in range(len(begin)) for a in begin[i] for b in end[i] for c in phoneme[i]]
-        
-        
-        #x = [[line[i][:] for line in spliting] for i in range(len(spliting[0]))]
-        #test = dict(((x,[y,z]) for x in phoneme for (y,z) in (begin,end))
-        #test1 = [dict(x,[y,z]) for x in phoneme for y in begin for z in end if x.index() == y.index() and z.index()]
-        
-        
-       
-        
-    #for lines in t:
-    #a = int(lines[1])
-    #b = int(lines[0])
-    #p = lines[2]
-    #vazio.append([b, a, p])
-    
-        #begin, end, phoneme = [(int(lines[0]), for lines in spliting], [int(lines[1]) for lines in spliting]
+
     
     return t
+
+### FORMAS DE USAR A FUNÇÃO PHONEMEREAD():
+    
+#x = phonemeread()
+#[a for a in x if a[coluna]==item da coluna(podendo ser numero de inicio, fim, ou o fonema)]
+#a[0]= inicio, a[1]= fim, a[2]= fonema
+#lembrar que os numeros são int e os fonemas são str (entao precisa do '')
+    
+#retorna uma lista com uma tupla com inicio, fim e o fonema
+
+
+
+
+
+
+
+
+
     
     
     
