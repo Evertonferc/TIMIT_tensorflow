@@ -60,21 +60,42 @@ def phonemeread():
     for path in all_files('C:/Users/evert/Desktop/Testando/Alguns dados para teste/TRAIN/DR1/FCJF0', '*.PHN'):
         with open(path, 'r') as text:
            content = text.readlines()
-        content = [line.strip() for line in content]
         text.close()
         
-        spliting = [col.split() for col in content]
+        spliting = [line.split() for line in content]
+        vazio = []
         
-        x = [[linha[i][:] for linha in spliting] for i in range(len(spliting[0]))]
-        i, f, ph = int(x[1])    
+        t = [(int(lines[0]), int(lines[1]), lines[2]) for lines in spliting]
+        #vazio.append([begin, end, phoneme])
+        
+        #x = [[line[i][:] for line in spliting] for i in range(len(spliting[0]))]
         
         
-        #x = [spliting[i] for i in spliting]
-        
-        
-        return x
+        #col1 = [int(b) for b in range(len(spliting)) for spliting[b]]
     
+       # begin, end = [int(b) for b in x[0]], [int(e) for e in x[1]]
+        #phoneme = x[2]
+        
+       # test = [(a,b,c) for a in begin for b in end for c in phoneme if begin.index(a) == end.index(b) and phoneme.index(c)]
+        #test = [(a,b,c) for i in range(len(begin)) for a in begin[i] for b in end[i] for c in phoneme[i]]
+        
+        
+        #x = [[line[i][:] for line in spliting] for i in range(len(spliting[0]))]
+        #test = dict(((x,[y,z]) for x in phoneme for (y,z) in (begin,end))
+        #test1 = [dict(x,[y,z]) for x in phoneme for y in begin for z in end if x.index() == y.index() and z.index()]
+        
+        
+       
+        
+    #for lines in t:
+    #a = int(lines[1])
+    #b = int(lines[0])
+    #p = lines[2]
+    #vazio.append([b, a, p])
     
+        #begin, end, phoneme = [(int(lines[0]), for lines in spliting], [int(lines[1]) for lines in spliting]
+    
+    return t
     
     
     
