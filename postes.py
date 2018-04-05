@@ -4,9 +4,9 @@ Created on Tue Apr  3 16:50:53 2018
 
 @author: evertonferc
 """
-def postes(n):
+def postes(x):
     #x = int(input('Entre com a distancia (em mm): '))
-    x = n
+
 #    i = 39
 #    
 #    if x%40 == 0:
